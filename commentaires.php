@@ -2,7 +2,6 @@
 		//permet de savoir combien de lignes possede le fichier
 		$contenu_fichier = file_get_contents('pseudos.txt');
 		$nb_lignes=substr_count($contenu_fichier,"\r\n");
-		echo "Il y a actuellement ".$nb_lignes." messages<br/><br/>";
 		
 		//Affichage pseudos puis titres puis textes de tous les commentaires
 		//Ouverture fichiers
@@ -17,15 +16,31 @@
 			$pseudo=fgets($fp,1000);
 			$titre=fgets($fp2,1000);
 			$message=fgets($fp3,1000);
-			//$date=fgets($fp4,2);
+			$date=fgets($fp4,50);
 			
 			//Affichage valeurs
 			echo "<strong>$pseudo</strong><br/>";
 			echo "<em>$titre</em><br/>";
 			echo "$message<br/>";
-			/*for ($i=0;i<20;i++){
-				echo "[5*$i][5*$i+1][5*$i+2][5*$i+3][5*$i+4]"
+			echo $date."<br/><br/>";
+			/*
+			while ($ligne=fgets($fp4)!==false){
+				echo $ligne;
 			}
+			
+			$jour=fseek($fp4,-1,SEEK_END);
+			$mois=fseek($fp4,-2,SEEK_END);
+			$annee=fgets($fp4,($i*5)+3);
+			$heure=fgets($fp4,($i*5)+4);
+			$minute=fgets($fp4,($i*5)+5);
+			
+			echo "Message écrit le ".$jour."/".$mois."/".$annee." à ".$heure."h".$minute."<br/><br/>";
+			
+			echo $jour." pour i =".$i."<br/>";
+			echo $mois." pour i=".$i."<br/>";
+			echo $annee." pour i =".$i."<br/>";
+			echo $heure."pour i = ".$i."<br/>";
+			echo $minute." pour i =".$i."<br/>";
 			*/
 		}
 		

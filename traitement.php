@@ -24,7 +24,26 @@
 		fputs($fp,$pseudo."\r\n");
 		fputs($fp2,$titre."\r\n");
 		fputs($fp3,$message."\r\n");
-		fputs($fp4,$jour."\r\n".$mois."\r\n".$annee."\r\n".$heure."\r\n".$minute"\r\n");
+		
+		/*
+		fputs($fp4,$jour."\r\n");
+		fputs($fp4,$mois."\r\n");
+		fputs($fp4,$annee."\r\n");
+		fputs($fp4,$heure."\r\n");
+		fputs($fp4,$minute."\r\n");
+		*/
+		
+		fputs($fp4,"Message écrit le ");
+		fputs($fp4,$jour);
+		fputs($fp4,"/");
+		fputs($fp4,$mois);
+		fputs($fp4,"/");
+		fputs($fp4,$annee);
+		fputs($fp4," à ");
+		fputs($fp4,$heure);
+		fputs($fp4,"h");
+		fputs($fp4,$minute."\r\n");
+
 		
 		//fermeture de tous les fichiers
 		fclose($fp);
@@ -32,7 +51,7 @@
 		fclose($fp3);
 		fclose($fp4);
 	}else{
-		echo "Vous n'avez pas rempli toutes les informations";
+		echo "Vous devez remplir toutes les informations pour envoyer un message<br/><br/>";
 	}
 
 ?>
