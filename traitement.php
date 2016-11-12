@@ -25,14 +25,6 @@
 		fputs($fp2,$titre."\r\n");
 		fputs($fp3,$message."\r\n");
 		
-		/*
-		fputs($fp4,$jour."\r\n");
-		fputs($fp4,$mois."\r\n");
-		fputs($fp4,$annee."\r\n");
-		fputs($fp4,$heure."\r\n");
-		fputs($fp4,$minute."\r\n");
-		*/
-		
 		fputs($fp4,"Message écrit le ");
 		fputs($fp4,$jour);
 		fputs($fp4,"/");
@@ -43,7 +35,6 @@
 		fputs($fp4,$heure);
 		fputs($fp4,"h");
 		fputs($fp4,$minute."\r\n");
-
 		
 		//fermeture de tous les fichiers
 		fclose($fp);
