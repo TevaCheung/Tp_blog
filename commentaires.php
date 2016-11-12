@@ -23,7 +23,6 @@
 			echo "<em>$titre</em><br/>";
 			echo "$message<br/>";
 			echo $date."<br/><br/>";
-
 		}
 		
 		fclose($fp);

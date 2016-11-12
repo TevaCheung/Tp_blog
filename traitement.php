@@ -6,6 +6,7 @@
 		$titre=htmlspecialchars($_POST['titre']);
 		$message=htmlspecialchars($_POST['message']);
 		
+		//Fuseau horaire de Paris utilise
 		date_default_timezone_set('Europe/Paris');
 		$jour = date('d');
 		$mois = date('m');
@@ -21,20 +22,56 @@
 		$fp4= fopen("dates.txt","a");
 
 		//Stockage valeurs
-		fputs($fp,$pseudo."\r\n");
-		fputs($fp2,$titre."\r\n");
-		fputs($fp3,$message."\r\n");
+		// La commande du saut a la ligne depend du systeme d exploitation
 		
-		fputs($fp4,"Message écrit le ");
-		fputs($fp4,$jour);
-		fputs($fp4,"/");
-		fputs($fp4,$mois);
-		fputs($fp4,"/");
-		fputs($fp4,$annee);
-		fputs($fp4," à ");
-		fputs($fp4,$heure);
-		fputs($fp4,"h");
-		fputs($fp4,$minute."\r\n");
+		$user_agent = getenv("HTTP_USER_AGENT");
+
+		if (strpos($user_agent, "Win") !== FALSE){		
+			fputs($fp,$pseudo."\r\n");
+			fputs($fp2,$titre."\r\n");
+			fputs($fp3,$message."\r\n");
+			
+			fputs($fp4,"Message écrit le ");
+			fputs($fp4,$jour);
+			fputs($fp4,"/");
+			fputs($fp4,$mois);
+			fputs($fp4,"/");
+			fputs($fp4,$annee);
+			fputs($fp4," à ");
+			fputs($fp4,$heure);
+			fputs($fp4,"h");
+			fputs($fp4,$minute."\r\n");
+		}elseif ((strpos($user_agent, "Mac") !== FALSE) || (strpos($user_agent, "PPC") !== FALSE)){
+			fputs($fp,$pseudo."\r");
+			fputs($fp2,$titre."\r");
+			fputs($fp3,$message."\r");
+			
+			fputs($fp4,"Message écrit le ");
+			fputs($fp4,$jour);
+			fputs($fp4,"/");
+			fputs($fp4,$mois);
+			fputs($fp4,"/");
+			fputs($fp4,$annee);
+			fputs($fp4," à ");
+			fputs($fp4,$heure);
+			fputs($fp4,"h");
+			fputs($fp4,$minute."\r");
+		}elseif (strpos($user_agent, "Linux") !== FALSE){
+			fputs($fp,$pseudo."\n");
+			fputs($fp2,$titre."\n");
+			fputs($fp3,$message."\n");
+			
+			fputs($fp4,"Message écrit le ");
+			fputs($fp4,$jour);
+			fputs($fp4,"/");
+			fputs($fp4,$mois);
+			fputs($fp4,"/");
+			fputs($fp4,$annee);
+			fputs($fp4," à ");
+			fputs($fp4,$heure);
+			fputs($fp4,"h");
+			fputs($fp4,$minute."\n");
+		}
 		
 		//fermeture de tous les fichiers
 		fclose($fp);
