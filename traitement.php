@@ -1,8 +1,8 @@
 <?php
-	if (isset($_POST['pseudo']) AND isset($_POST['titre']) AND isset($_POST['message']))
-	{
+
+	if (isset($_POST['pseudo']) AND !empty($_POST['pseudo']) AND isset($_POST['titre']) AND !empty($_POST['titre']) AND isset($_POST['message']) AND !empty($_POST['message']))	{
 		//Stockage informations message dans des variables
-		$pseudo=htmlspecialchars($_POST['pseudo']);
+		$pseudo=$_SESSION['pseudo'];
 		$titre=htmlspecialchars($_POST['titre']);
 		$message=htmlspecialchars($_POST['message']);
 		
