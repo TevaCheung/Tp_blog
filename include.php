@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	
-	if (!isset($_SESSION['pseudo'])){
+	if ($_SESSION['pseudo']==NULL){
 		header ('location : connexion.php');
 	}
 ?>
@@ -25,9 +25,8 @@
 				<legend>Nouveau message</legend>
 				
 				<form action="include.php" method="POST">
-					<p>
+					<p>					
 						<?php echo "Pseudo : " . $_SESSION['pseudo'] . "<br/>"?>
-						
 						<label for="nom">Titre du message :</label><input type="text" name="titre"/>
 						<br/>
 						<label for="nom">Message :</label><input type="text" name="message"/>
