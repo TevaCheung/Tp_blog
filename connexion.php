@@ -51,7 +51,7 @@
 		<p>
 			<label for="pseudo">Pseudo :</label><input type="text" name="pseudo"/>
 			<br/>
-			<label for="mdp">Mot de passe :</label><input type="text" name="mdp"/>
+			<label for="mdp">Mot de passe :</label><input type="password" name="mdp"/>
 			<br/>
 			<input type="submit" value="envoyer" />
 		</p>
